@@ -54,7 +54,8 @@
 		.menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 15px; background: var(--white); color: var(--ink); cursor: pointer; }
 
 		.hero { position: relative; min-height: 620px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 48px; padding-block: 78px 92px; overflow: hidden; }
-		.hero::before { position: absolute; z-index: -1; top: 55px; right: 3%; width: 42%; height: 78%; border: 2px solid rgb(255 255 255 / 85%); border-radius: 44% 44% 28px 28px; background: radial-gradient(circle, rgb(255 255 255 / 56%) 1.5px, transparent 2px) 0 0 / 30px 30px, linear-gradient(145deg, var(--rose) 8%, #fffefc 58%, var(--pink) 100%); box-shadow: 0 12px 35px rgb(168 85 104 / 12%); content: ""; }
+		.hero::before { position: absolute; z-index: 0; top: 55px; right: 0; width: 42%; height: 78%; border: 2px solid rgb(255 255 255 / 85%); border-radius: 44% 44% 28px 28px; background: radial-gradient(circle, rgb(255 255 255 / 56%) 1.5px, transparent 2px) 0 0 / 30px 30px, linear-gradient(145deg, var(--rose) 8%, #fffefc 58%, var(--pink) 100%); box-shadow: 0 12px 35px rgb(168 85 104 / 12%); content: ""; }
+		.hero-content { position: relative; z-index: 1; }
 		.eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--rose-dark); font-size: 11px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase; }
 		.eyebrow::before { width: 22px; height: 8px; border-radius: 8px; background: var(--rose); content: ""; }
 		h1, h2, h3, p { margin-top: 0; }
@@ -69,9 +70,9 @@
 		.text-link span { transition: transform 180ms ease; }
 		.text-link:hover span { transform: translateY(3px); }
 
-		.portrait-stage { position: relative; min-height: 390px; display: grid; place-items: center; }
-		.portrait-frame { position: relative; width: min(280px, 78%); aspect-ratio: 1; display: grid; place-items: center; overflow: hidden; border: 5px solid white; border-radius: 28px; background: radial-gradient(circle, rgb(255 255 255 / 56%) 1.5px, transparent 2px) 0 0 / 30px 30px, linear-gradient(155deg, var(--rose) 0%, #fffefc 55%, var(--pink) 100%); box-shadow: 0 13px 0 #f2d6d2, 0 18px 38px rgb(168 85 104 / 15%); }
-		.portrait-initials { position: relative; z-index: 1; color: var(--rose-dark); font-family: var(--display); font-size: clamp(48px, 8vw, 86px); font-weight: 800; letter-spacing: 0; text-shadow: 3px 4px 0 rgb(255 255 255 / 75%); }
+		.portrait-stage { position: relative; z-index: 1; min-height: 390px; display: grid; place-items: center; }
+		.portrait-frame { position: relative; z-index: 1; width: min(280px, 78%); aspect-ratio: 1; display: grid; place-items: center; padding: 7px; border: 5px solid white; border-radius: 30px; background: #fffefc; box-shadow: 0 13px 0 #f2d6d2, 0 18px 38px rgb(168 85 104 / 15%); }
+		.portrait-frame img { display: block; width: 100%; height: 100%; border-radius: 19px; object-fit: cover; }
 
 		.section { padding-block: 104px; border-top: 2px dashed var(--line); }
 		.section-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 30px; margin-bottom: 48px; }
@@ -160,7 +161,7 @@
 			.nav-links a { display: block; padding: 13px 2px; }
 			.nav-links li + li { border-top: 1px dashed var(--line); }
 			.hero { min-height: auto; grid-template-columns: 1fr; gap: 12px; padding-block: 70px 60px; }
-			.hero::before { top: auto; right: -12%; bottom: 6%; width: 75%; height: 40%; }
+			.hero::before { top: auto; right: 50%; bottom: 6%; width: min(100%, 440px); height: 40%; transform: translateX(50%); }
 			.hero::after, .side-note { display: none; }
 			.hero h1 { max-width: 550px; font-size: clamp(40px, 11vw, 58px); }
 			.hero-copy { max-width: 440px; }
@@ -213,7 +214,7 @@
 		<section class="page-shell hero" id="beranda" aria-labelledby="hero-title">
 			<div class="hero-content reveal">
 				<p class="eyebrow">Portofolio · Rekayasa Perangkat Lunak</p>
-				<p class="hero-greeting">Halo, saya</p>
+				<p class="hero-greeting">Halo (˶ᵔᗜᵔ˶)ﾉﾞ, saya</p>
 				<h1 id="hero-title">Farah Fadhila Lubis</h1>
 				<p class="hero-copy">Siswi Rekayasa Perangkat Lunak yang tertarik pada dunia web dan senang terus belajar bagaimana ide sederhana bisa tumbuh menjadi sesuatu yang bermanfaat.</p>
 				<div class="hero-actions">
@@ -221,8 +222,8 @@
 					<a class="text-link" href="#proyek">Lihat proyek <span aria-hidden="true">↓</span></a>
 				</div>
 			</div>
-			<div class="portrait-stage reveal" aria-label="Inisial Farah Fadhila Lubis, FFL, dalam ilustrasi warna lembut">
-				<div class="portrait-frame"><span class="portrait-initials" aria-hidden="true">FFL</span></div>
+			<div class="portrait-stage reveal">
+				<div class="portrait-frame"><img src="farah-photo.jpe" alt="Foto Farah Fadhila Lubis"></div>
 			</div>
 		</section>
 
